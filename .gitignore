@@ -1,0 +1,6 @@
+steps.txt
+venv
+geckodriver.log
+digi-sele/donwload_temp
+digi-sele/output
+digi-sele/__pycache__
