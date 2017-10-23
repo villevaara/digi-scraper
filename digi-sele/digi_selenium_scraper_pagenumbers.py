@@ -35,7 +35,7 @@ def get_start_params(argv):
 display = Display(visible=0, size=(800, 600))
 display.start()
 browser = webdriver.Chrome()
-browser.implicitly_wait(30)
+browser.implicitly_wait(60)
 browser.set_window_size(800, 600)
 
 

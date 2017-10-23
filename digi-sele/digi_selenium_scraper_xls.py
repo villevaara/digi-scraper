@@ -12,64 +12,9 @@ from digi_selenium_scraper_common_functions import (
     convert_day_or_month_to_str,
     # convert_day_or_month_range_to_str,
     get_datetime_from_arg,
-    csv_from_excel,
-    get_daylist_for_month)
+    csv_from_excel)
 import getopt
 import sys
-
-
-# def fetch_newspaper_csv_for_day(year, month, day,
-#                                 output_dir='output/test/'):
-
-#     url_start = ('http://digi.kansalliskirjasto.fi/sanomalehti/search' +
-#                  '?query=&requireAllKeywords=true' +
-#                  '&fuzzy=false&hasIllustrations=false&startDate=')
-#     url_mid = '&endDate='
-#     url_end = '&orderBy=DATE&pages=&resultMode=TEXT&page=1'
-#     url_date = '-'.join([str(year), str(month), str(day)])
-#     url_to_process = url_start + url_date + url_mid + url_date + url_end
-
-#     savedir = (output_dir +
-#                ('/'.join([str(year), str(month), str(day)])))
-#     if not os.path.exists(savedir):
-#         os.makedirs(savedir)
-
-#     downdir = os.path.join(os.getcwd(), savedir)
-
-#     prefs = {'download.default_directory': downdir}
-#     chrome_options = webdriver.ChromeOptions()
-#     chrome_options.add_experimental_option('prefs', prefs)
-#     browser = webdriver.Chrome(chrome_options=chrome_options)
-#     browser.implicitly_wait(60)
-#     browser.set_window_size(800, 600)
-
-#     browser.get(url_to_process)
-#     try:
-#         download_button = browser.find_element_by_xpath(
-#             '//*[@ng-if="ctrl.excelDownloadUrl"]')
-#         download_button.click()
-#         while not glob.glob(downdir + "/*.xlsx"):
-#             time.sleep(1)
-#             print("waiting 1 sec for download to finish...")
-
-#         # orig_file = downdir + "/" + os.listdir(downdir)[0]
-#         orig_file = downdir + "/" + ("serial-publications--" +
-#                                      str(year) + str(month) + str(day) + '-' +
-#                                      str(year) + str(month) + str(day) +
-#                                      ".xlsx")
-#         # new_filename = downdir + "/" + 'newspapers-' + url_date + ".xlsx"
-#         # os.rename(orig_file, new_filename)
-
-#         new_csv_filename = downdir + "/" + 'newspapers-' + url_date + ".csv"
-#         csv_from_excel(orig_file,
-#                        new_csv_filename)
-
-#     except NoSuchElementException:
-#         empty_date_filename = downdir + "/" + "empty.txt"
-#         with open(empty_date_filename, 'w') as emptyfile:
-#             emptyfile.write("no hits for this date!")
-
-#     browser.quit()
 
 
 def fetch_csv_for_day(year, month, day, browser,
@@ -207,7 +152,7 @@ while scraping_datetime <= end_datetime:
                       material_type=material_type,
                       output_dir=output_dir)
     print("   " + get_elapsed_time_str(start_time) + " -> done.")
-    seconds = random.random() * 5
+    seconds = random.random() * 2
     time.sleep(seconds)
     scraping_datetime = scraping_datetime + datetime.timedelta(days=1)
 
