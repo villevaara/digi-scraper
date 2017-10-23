@@ -13,5 +13,5 @@ http://digi.kansalliskirjasto.fi/sanomalehti/search?query=&requireAllKeywords=tr
 99. profit
 
 todo:
-!get also perodicals
-iteroi hakemistot läpi, tarkista onko .csv, jos on niin aja rapsuli
+* get also periodicals
+* iteroi hakemistot läpi, tarkista onko .csv, jos on niin aja rapsuli
